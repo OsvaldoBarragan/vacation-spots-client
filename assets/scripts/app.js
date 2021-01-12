@@ -13,4 +13,10 @@ $(() => {
   $('#sign-in').on('submit', authentication.onSignIn)
   $('#password-change').on('submit', authentication.onPasswordChange)
   $('#sign-out').on('click', authentication.onSignOut)
+  $('#location-creator').on('submit', authentication.onCreateLocation)
+  // $('#location-creator').on('submit', authentication.onUpdateLocation)
+  $('#all-locations').on('click', authentication.onShowAllLocations)
+  $('#create-location').on('click', function () {
+    $('#location-creator').show()
+  })
 })

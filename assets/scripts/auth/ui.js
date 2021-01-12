@@ -17,6 +17,7 @@ const signInSuccess = function (response) {
   store.user = response.user
 
   $('.unauthenticated').hide()
+  $('#location-creator').hide()
   $('.authenticated').show()
 }
 
@@ -55,6 +56,26 @@ const signOutFailure = function (error) {
   console.log('Error is: ' + error.responseJSON.message)
 }
 
+const createLocationSuccess = function (response) {
+  $('#message').text('Location created')
+  console.log('Response is: ' + JSON.stringify(response))
+}
+
+const createLocationFailure = function (error) {
+  $('#message').text('Failed to create location.')
+  console.log('Error is: ' + error.responseJSON.message)
+}
+
+const showAllLocationsSuccess = function (response) {
+  $('#message').text('These are all of the locations: ' + response)
+  console.log('Response is: ' + response)
+}
+
+const showAllLocationsFailure = function (error) {
+  $('#message').text('Failed to show all locations.')
+  console.log('Error is: ' + error.responseJSON.message)
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -63,5 +84,9 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  createLocationSuccess,
+  createLocationFailure,
+  showAllLocationsSuccess,
+  showAllLocationsFailure
 }

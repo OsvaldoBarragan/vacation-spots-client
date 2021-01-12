@@ -42,9 +42,39 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
+const onCreateLocation = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const data = getFormFields(form)
+
+  api.createLocation(data)
+    .then(ui.createLocationSuccess)
+    .catch(ui.createLocationFailure)
+}
+
+const onShowAllLocations = function (event) {
+  event.preventDefault()
+
+  api.showAllLocations()
+    .then(ui.showAllLocationsSuccess)
+    .catch(ui.showAllLocationsFailure)
+}
+
+// const onUpdateLocation = function (event) {
+//   event.preventDefault()
+//   const form = event.target
+//   const data = getFormFields(form)
+//
+//   api.updateLocation(data)
+//     .then(ui.updateLocationSuccess)
+//     .catch(ui.updateLocationFailure)
+// }
+
 module.exports = {
   onSignIn: onSignIn,
   onSignUp: onSignUp,
   onPasswordChange: onPasswordChange,
-  onSignOut: onSignOut
+  onSignOut: onSignOut,
+  onCreateLocation: onCreateLocation,
+  onShowAllLocations: onShowAllLocations
 }

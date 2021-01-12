@@ -38,9 +38,42 @@ const signOut = function () {
   })
 }
 
+const createLocation = function (formData) {
+  return $.ajax({
+    url: config.apiUrl + '/locations',
+    method: 'POST',
+    data: formData,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
+const showAllLocations = function () {
+  return $.ajax({
+    url: config.apiUrl + '/locations',
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
+// const updateLocation = function (formData) {
+//   return $.ajax({
+//     url: config.apiUrl + 'locations/' + id,
+//     method: 'PATCH',
+//     headers: {
+//       Authorization: 'Bearer ' + store.user.token
+//     }
+//   })
+// }
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  createLocation,
+  showAllLocations
 }
