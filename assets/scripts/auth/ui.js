@@ -46,6 +46,7 @@ const signOutSuccess = function (response) {
 
   $('.authenticated').hide()
   $('.unauthenticated').show()
+  $('#location-list').hide()
 
   store.user = null
   $('form').trigger('reset')
@@ -58,7 +59,8 @@ const signOutFailure = function (error) {
 
 const createLocationSuccess = function (response) {
   $('#message').text('Location created')
-  console.log('Response is: ' + JSON.stringify(response))
+  console.log('The location was successfully created: ' + response)
+  store.locations = response.locations
 }
 
 const createLocationFailure = function (error) {
@@ -67,8 +69,11 @@ const createLocationFailure = function (error) {
 }
 
 const showAllLocationsSuccess = function (response) {
-  $('#message').text('These are all of the locations: ' + response)
-  console.log('Response is: ' + response)
+  $('#message').text('Locations shown below.')
+
+  store.locations = response.locations
+  console.log('Response is: ' + JSON.stringify(store.locations))
+  $('#location-list').text(JSON.stringify(store.locations))
 }
 
 const showAllLocationsFailure = function (error) {
