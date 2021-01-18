@@ -39,6 +39,7 @@ const signOut = function () {
 }
 
 const createLocation = function (formData) {
+  console.log('formData: ' + JSON.stringify(formData))
   return $.ajax({
     url: config.apiUrl + '/locations',
     method: 'POST',
@@ -59,15 +60,17 @@ const showAllLocations = function () {
   })
 }
 
-// const updateLocation = function (formData) {
-//   return $.ajax({
-//     url: config.apiUrl + 'locations/' + id,
-//     method: 'PATCH',
-//     headers: {
-//       Authorization: 'Bearer ' + store.user.token
-//     }
-//   })
-// }
+const updateLocation = function (formData, id) {
+  console.log(id)
+  return $.ajax({
+    url: config.apiUrl + '/locations/' + id,
+    method: 'PATCH',
+    data: formData,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
 
 module.exports = {
   signUp,
@@ -75,5 +78,6 @@ module.exports = {
   changePassword,
   signOut,
   createLocation,
-  showAllLocations
+  showAllLocations,
+  updateLocation
 }

@@ -12,7 +12,7 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1 id="titleName"><b>YourVacation</b></h1>
+      <h1 id="titleName"><b>Vacation Spots</b></h1>
       <p id="message"></p>
       <div class="unauthenticated">
         <form id="sign-up">
@@ -46,6 +46,10 @@
           />
           <button type="submit">Log in</button>
         </form>
+        <p id="with-open-login">Already have an account? Click below to log-in</p>
+        <p id="with-open-signup">Don't have an account? Click below to create an account</p>
+        <button id="open-login">Go To Log-In</button>
+        <button id="open-signup">Back to Sign-Up</button>
       </div>
       <div class="authenticated">
         <form id="password-change">
@@ -63,36 +67,76 @@
         </form>
         <button id="sign-out">Log off</button>
         <button id="create-location">Create a Location</button>
+        <button id="show-updateLocation">Update Location</button>
         <form id="location-creator">
           <input
             placeholder="Name"
             type="text"
-            name="locationName"
+            name="location[name]"
           />
           <input
             placeholder="Country"
             type="text"
-            name="countryName"
+            name="location[country]"
           />
           <input
             placeholder="Activities"
             type="text"
-            name="activities"
+            name="location[activities]"
           />
           <input
-            placeholder="Food"
+            placeholder="Foods"
             type="text"
-            name="foods"
+            name="location[cuisines]"
           />
           <input
             placeholder="Image Url"
             type="text"
-            name="imageUrl"
+            name="location[imageUrl]"
           />
           <button type="submit">Click to Create the Location</button>
         </form>
         <button id="all-locations">All Locations</button>
         <p id="location-list"></p>
-    </div>
+          <!-- <p id="location-id"></p>
+          <p id="location-name"></p>
+          <p id="location-country"></p>
+          <p id="location-activities"></p>
+          <p id="location-cuisines"></p>
+          <p id="location-imageurl"></p> -->
+        <form id="update-locations">
+          <input
+            placeholder="locationID"
+            type="text"
+            name="location[_id]"
+          />
+          <input
+            placeholder="updatedName"
+            type="text"
+            name="location[name]"
+          />
+          <input
+            placeholder="updatedCountry"
+            type="text"
+            name="location[country]"
+          />
+          <input
+            placeholder="updatedActivities"
+            type="text"
+            name="location[activities]"
+          />
+          <input
+            placeholder="updatedFoods"
+            type="text"
+            name="location[cuisines]"
+          />
+          <input
+            placeholder="updatedImageUrl"
+            type="text"
+            name="location[imageUrl]"
+          />
+          <button type="submit">Update</button>
+        </form>
+      </div>
     </body>
 </html>

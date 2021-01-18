@@ -60,15 +60,17 @@ const onShowAllLocations = function (event) {
     .catch(ui.showAllLocationsFailure)
 }
 
-// const onUpdateLocation = function (event) {
-//   event.preventDefault()
-//   const form = event.target
-//   const data = getFormFields(form)
-//
-//   api.updateLocation(data)
-//     .then(ui.updateLocationSuccess)
-//     .catch(ui.updateLocationFailure)
-// }
+const onUpdateLocation = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const data = getFormFields(form)
+  console.log(data)
+  const id = data.location._id
+
+  api.updateLocation(data, id)
+    .then(ui.updateLocationSuccess)
+    .catch(ui.updateLocationFailure)
+}
 
 module.exports = {
   onSignIn: onSignIn,
@@ -76,5 +78,6 @@ module.exports = {
   onPasswordChange: onPasswordChange,
   onSignOut: onSignOut,
   onCreateLocation: onCreateLocation,
-  onShowAllLocations: onShowAllLocations
+  onShowAllLocations: onShowAllLocations,
+  onUpdateLocation: onUpdateLocation
 }
