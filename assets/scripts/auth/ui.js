@@ -70,31 +70,36 @@ const createLocationFailure = function (error) {
   console.log('Error is: ' + error.responseJSON.message)
 }
 
+const displayActivities = function (location) {
+  console.log('Activities: ' + location.activities)
+  $('#activities').text(location.activities)
+}
+
 const showAllLocationsSuccess = function (response) {
   console.log('response is: ' + JSON.stringify(response))
   $('#message').text('Locations shown below.')
 
   const locationsList = response.locations
-  let openText = ''
+  $('#location-list').empty()
+  $('#activities').empty()
 
+  // let openText = ''
+  // loop through all of the locations
   for (let i = 0; i < locationsList.length; i++) {
-    openText += JSON.stringify('id: ' + locationsList[i]._id + ', ' + 'name: ' +
-  locationsList[i].name + ', ' + 'country: ' + locationsList[i].country + ', ' +
-'activities: ' + locationsList[i].activities + ', ' + 'cuisines: ' + locationsList[i].cuisines +
-', ' + 'imageUrl: ' + locationsList[i].imageUrl)
+    // create a div each time it loops
+    const locationDiv = document.createElement('div')
+    // add a class of `displayLocations` to each div that is created
+    locationDiv.classList.add('displayLocations')
+    // when a location div is clicked on, run displayActivities
+    $(locationDiv).click(function () {
+      console.log('Works')
+      displayActivities(locationsList[i])
+    })
+    locationDiv.innerHTML = (locationsList[i].name + ', ' + locationsList[i].country)
+    // $('.displayLocations').on('click', displayActivities(locationsList[i]))
+    // $('.displayLocations').text(locationsList[i].name + ', ' + locationsList[i].country)
+    $('#location-list').append(locationDiv)
   }
-
-  $('#location-list').text(openText)
-  //   const displayAllLocations = function () {
-  //     $('#location-id').text(response.locations[i]._id)
-  //     $('#location-name').text(response.locations[i].name)
-  //     $('#location-country').text(response.locations[i].country)
-  //     $('#location-activities').text(response.locations[i].activities)
-  //     $('#location-cuisines').text(response.locations[i].cuisines)
-  //     $('#location-imageurl').text(response.locations[i].imageUrl)
-  //   }
-  //   console.log(displayAllLocations())
-  // }
 }
 
 const showAllLocationsFailure = function (error) {
