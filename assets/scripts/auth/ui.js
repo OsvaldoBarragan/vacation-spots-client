@@ -19,6 +19,7 @@ const signInSuccess = function (response) {
   $('.unauthenticated').hide()
   $('#location-creator').hide()
   $('#update-locations').hide()
+  $('#password-change').hide()
   $('.authenticated').show()
 }
 
@@ -70,9 +71,10 @@ const createLocationFailure = function (error) {
   console.log('Error is: ' + error.responseJSON.message)
 }
 
-const displayActivities = function (location) {
-  console.log('Activities: ' + location.activities)
-  $('#activities').text(location.activities)
+const displayInformation = function (location) {
+  $('#locationID').text('Location ID: ' + location._id)
+  $('#activities').text('Location Activities: ' + location.activities)
+  $('#cuisines').text('Location Cuisines: ' + location.cuisines)
 }
 
 const showAllLocationsSuccess = function (response) {
@@ -81,7 +83,9 @@ const showAllLocationsSuccess = function (response) {
 
   const locationsList = response.locations
   $('#location-list').empty()
+  $('#locationID').empty()
   $('#activities').empty()
+  $('#cuisines').empty()
 
   // let openText = ''
   // loop through all of the locations
@@ -93,11 +97,9 @@ const showAllLocationsSuccess = function (response) {
     // when a location div is clicked on, run displayActivities
     $(locationDiv).click(function () {
       console.log('Works')
-      displayActivities(locationsList[i])
+      displayInformation(locationsList[i])
     })
     locationDiv.innerHTML = (locationsList[i].name + ', ' + locationsList[i].country)
-    // $('.displayLocations').on('click', displayActivities(locationsList[i]))
-    // $('.displayLocations').text(locationsList[i].name + ', ' + locationsList[i].country)
     $('#location-list').append(locationDiv)
   }
 }

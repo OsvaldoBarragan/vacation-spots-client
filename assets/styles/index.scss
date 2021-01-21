@@ -9,7 +9,8 @@ body {
 }
 
 #location-list {
-
+  position: relative;
+  left: 200px;
 }
 
 .unauthenticated {
@@ -63,7 +64,8 @@ p {
   width: 50%;
 }
 
-button[type=submit], #open-login, #open-signup {
+// button[type=submit]
+.buttons, .buttons2, #open-login, #open-signup {
   position: relative;
   width: 50%;
   text-align: center;
@@ -76,8 +78,14 @@ button[type=submit], #open-login, #open-signup {
   cursor: pointer;
 }
 
-button[type=submit]:hover {
+// button[type=submit]
+.buttons:hover {
   background-color: #0077b6;
+}
+
+#sign-out {
+  width: 5%;
+  font-size: 15px;
 }
 
 #open-login:hover, #open-signup:hover, .displayLocations:hover {
@@ -90,6 +98,6 @@ button[type=submit]:hover {
 
 #sign-out {
   position: absolute;
-  top: -230px;
+  top: -240px;
   right: 0px;
 }

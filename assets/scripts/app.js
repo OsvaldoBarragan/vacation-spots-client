@@ -38,11 +38,15 @@ $(() => {
 
   $('#all-locations').on('click', authentication.onShowAllLocations)
   $('#create-location').on('click', function () {
-    $('#location-creator').show()
+    $('#location-creator').toggle()
   })
 
   $('#update-locations').on('submit', authentication.onUpdateLocation)
   $('#show-updateLocation').on('click', function () {
-    $('#update-locations').show()
+    $('#update-locations').toggle()
+  })
+
+  $('#show-changePassword').on('click', function () {
+    $('#password-change').toggle()
   })
 })

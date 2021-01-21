@@ -31,7 +31,7 @@
             type="password"
             name="credentials[password_confirmation]"
           />
-          <button type="submit">Create a New Account</button>
+          <button class="buttons" type="submit">Create a New Account</button>
         </form>
         <form id="sign-in">
           <input
@@ -44,14 +44,15 @@
             type="password"
             name="credentials[password]"
           />
-          <button type="submit">Log in</button>
+          <button class="buttons" type="submit">Log in</button>
         </form>
-        <p id="with-open-login">Already have an account? Click below to log-in</p>
+        <p id="with-open-login">Already have an account? Click below to log in</p>
         <p id="with-open-signup">Don't have an account? Click below to create an account</p>
-        <button id="open-login">Go To Log-In</button>
-        <button id="open-signup">Back to Sign-Up</button>
+        <button class="buttons" id="open-login">Go To Log in</button>
+        <button class="buttons" id="open-signup">Back to Sign-Up</button>
       </div>
       <div class="authenticated">
+        <button class="buttons" id="show-changePassword">Password Change</button>
         <form id="password-change">
           <input
             placeholder="Enter current password"
@@ -63,11 +64,10 @@
             type="password"
             name="passwords[new]"
           />
-          <button type="submit">Change Password</button>
+          <button class="buttons" type="submit">Confirm Password Change</button>
         </form>
-        <button id="sign-out">Log off</button>
-        <button id="create-location">Create a Location</button>
-        <button id="show-updateLocation">Update Location</button>
+        <button class="buttons" id="sign-out">Log off</button>
+        <button class="buttons" id="create-location">Create a Location</button>
         <form id="location-creator">
           <input
             placeholder="Name"
@@ -94,11 +94,14 @@
             type="text"
             name="location[imageUrl]"
           />
-          <button type="submit">Click to Create the Location</button>
+          <button class="buttons" type="submit">Click to Create the Location</button>
         </form>
-        <button id="all-locations">All Locations</button>
+        <button class="buttons" id="all-locations">All Locations</button>
         <p id="location-list"></p>
-        <p id="activities"></p>
+        <p class="location-information" id="locationID"></p>
+        <p class="location-information" id="activities"></p>
+        <p class="location-information" id="cuisines"></p>
+        <button class="buttons" id="show-updateLocation">Update Location</button>
         <form id="update-locations">
           <input
             placeholder="locationID"
@@ -130,7 +133,7 @@
             type="text"
             name="location[imageUrl]"
           />
-          <button type="submit">Update</button>
+          <button class="buttons" type="submit">Update</button>
         </form>
       </div>
     </body>
