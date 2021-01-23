@@ -37,7 +37,7 @@ $(() => {
   $('#location-creator').on('submit', authentication.onCreateLocation)
 
   $('#all-locations').on('click', authentication.onShowAllLocations)
-  $('#create-location').on('click', function () {
+  $('#show-locationCreator').on('click', function () {
     $('#location-creator').toggle()
   })
 

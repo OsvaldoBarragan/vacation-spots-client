@@ -3,6 +3,7 @@ const store = require('./../store')
 const signUpSuccess = function (response) {
   $('#message').text('Account for ' + JSON.stringify(response.user.email) + ' has been created.')
   console.log('Success! Sign-up works!')
+  $('form :input').val('')
 }
 
 const signUpFailure = function (error) {
@@ -31,6 +32,7 @@ const signInFailure = function (error) {
 const changePasswordSuccess = function (response) {
   $('#message').text('The password has been successfully changed.')
   console.log('Password has changed.')
+  $('form :input').val('')
 }
 
 const changePasswordFailure = function (error) {
@@ -64,6 +66,7 @@ const createLocationSuccess = function (response) {
   // console.log('The location was successfully created: ' + JSON.stringify(response))
   // console.log('The location shortened: ' + JSON.stringify(response.locations))
   store.locations = response.locations
+  $('form :input').val('')
 }
 
 const createLocationFailure = function (error) {
@@ -113,6 +116,7 @@ const updateLocationSuccess = function () {
   $('#message').text('Location updated')
   // $('.authenticated').show()
   console.log('I made it here, UI')
+  $('form :input').val('')
 }
 
 const updateLocationFailure = function () {

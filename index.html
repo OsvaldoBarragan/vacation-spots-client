@@ -52,7 +52,15 @@
         <button class="buttons" id="open-signup">Back to Sign-Up</button>
       </div>
       <div class="authenticated">
-        <button class="buttons" id="show-changePassword">Password Change</button>
+        <div class="dropdown">
+          <span id="settings">Settings</span>
+          <div class="side-buttons">
+            <div id="show-changePassword">- Change Password</div>
+            <div id="sign-out">- Sign Out</div>
+            <div id="show-reviews">- All Reviews</div>
+            <div id="user-settings">- User Settings</div>
+          </div>
+        </div>
         <form id="password-change">
           <input
             placeholder="Enter current password"
@@ -66,8 +74,11 @@
           />
           <button class="buttons" type="submit">Confirm Password Change</button>
         </form>
-        <button class="buttons" id="sign-out">Log off</button>
-        <button class="buttons" id="create-location">Create a Location</button>
+        <div class="main-buttons">
+          <button class="buttons" id="show-locationCreator">Create a Location</button>
+          <button class="buttons" id="show-updateLocation">Update Location</button>
+          <button class="buttons" id="all-locations">All Locations</button>
+        </div>
         <form id="location-creator">
           <input
             placeholder="Name"
@@ -96,12 +107,6 @@
           />
           <button class="buttons" type="submit">Click to Create the Location</button>
         </form>
-        <button class="buttons" id="all-locations">All Locations</button>
-        <p id="location-list"></p>
-        <p class="location-information" id="locationID"></p>
-        <p class="location-information" id="activities"></p>
-        <p class="location-information" id="cuisines"></p>
-        <button class="buttons" id="show-updateLocation">Update Location</button>
         <form id="update-locations">
           <input
             placeholder="locationID"
@@ -135,6 +140,10 @@
           />
           <button class="buttons" type="submit">Update</button>
         </form>
-      </div>
+        <div id="location-list"></div>
+          <p class="location-information" id="locationID"></p>
+          <p class="location-information" id="activities"></p>
+          <p class="location-information" id="cuisines"></p>
+        </div>
     </body>
 </html>

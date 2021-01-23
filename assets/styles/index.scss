@@ -4,15 +4,6 @@ body {
   background-color: #aacfdd;
 }
 
-.displayLocations {
-  color: purple;
-}
-
-#location-list {
-  position: relative;
-  left: 200px;
-}
-
 .unauthenticated {
   text-align: center;
   font-size: 20px;
@@ -29,7 +20,7 @@ h1 {
   color: black;
   position: relative;
   font-size: 40px;
-  margin-top: 100px;
+  margin-top: 80px;
   margin-bottom: 50px;
 }
 
@@ -64,8 +55,26 @@ p {
   width: 50%;
 }
 
-// button[type=submit]
-.buttons, .buttons2, #open-login, #open-signup {
+.displayLocations {
+  color: purple;
+  // margin:4px, 4px;
+  // padding:4px;
+  // background-color: green;
+  // width: 500px;
+  // height: 110px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align:justify;
+}
+
+#location-list {
+  position: relative;
+  left: 200px;
+  top: 100px;
+  width: 400px;
+}
+
+.buttons {
   position: relative;
   width: 50%;
   text-align: center;
@@ -83,11 +92,6 @@ p {
   background-color: #0077b6;
 }
 
-#sign-out {
-  width: 5%;
-  font-size: 15px;
-}
-
 #open-login:hover, #open-signup:hover, .displayLocations:hover {
   background-color: #0077b6;
 }
@@ -96,8 +100,74 @@ p {
   text-align: center;
 }
 
-#sign-out {
+.location-information {
+  position: relative;
+  left: 800px;
+  bottom: 20px;
+  width: 400px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+#settings {
+  position: relative;
+  right: 625px;
+  top: -200px;
+  padding: 8px;
+  background-color: white;
+}
+
+// .side-buttons {
+//   position: relative;
+//   top: -220px;
+//   height: 60px;
+//   width: 15%;
+//   font-size: 15px;
+//   right: 0px;
+//   display: block;
+// }
+
+.side-buttons {
+  display: none;
   position: absolute;
-  top: -240px;
-  right: 0px;
+  background-color: #f9f9f9;
+  min-width: 125px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 5px 5px;
+  z-index: 1;
+  right: 597px;
+  top: -175px;
+  margin: 5px;
+}
+
+.dropdown:hover .side-buttons {
+  display: block;
+}
+
+#settings:hover {
+  background-color: #787878;
+}
+
+#show-changePassword:hover, #sign-out:hover,
+#show-reviews:hover, #user-settings:hover {
+  background-color: #0077b6;
+}
+
+// #show-changePassword, #sign-out {
+//   top: 10px;
+// }
+
+.main-buttons {
+  display: flex;
+  flex-direction: row;
+  width: 200px;
+  justify-content: center;
+  margin: auto;
+}
+
+#show-locationCreator, #show-updateLocation, #all-locations {
+  margin: 10px;
 }
