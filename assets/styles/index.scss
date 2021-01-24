@@ -24,6 +24,12 @@ h1 {
   margin-bottom: 50px;
 }
 
+h4 {
+  text-align: center;
+  position: relative;
+  top: 75px;
+}
+
 input[type=text] {
   position: relative;
   left: 25%;
@@ -55,16 +61,17 @@ p {
   width: 50%;
 }
 
-.displayLocations {
+div.displayLocations {
   color: purple;
+  // margin-bottom: 12px;
   // margin:4px, 4px;
   // padding:4px;
   // background-color: green;
   // width: 500px;
   // height: 110px;
-  overflow-x: hidden;
-  overflow-y: auto;
-  text-align:justify;
+  // overflow-x: hidden;
+  // overflow-y: scroll;
+  // text-align: center;
 }
 
 #location-list {
@@ -72,6 +79,9 @@ p {
   left: 200px;
   top: 100px;
   width: 400px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 150px;
 }
 
 .buttons {
@@ -103,7 +113,7 @@ p {
 .location-information {
   position: relative;
   left: 800px;
-  bottom: 20px;
+  bottom: 60px;
   width: 400px;
 }
 
@@ -118,6 +128,7 @@ p {
   top: -200px;
   padding: 8px;
   background-color: white;
+  border-radius: 4px;
 }
 
 // .side-buttons {
@@ -155,10 +166,6 @@ p {
 #show-reviews:hover, #user-settings:hover {
   background-color: #E0E0E0;
 }
-
-// #show-changePassword, #sign-out {
-//   top: 10px;
-// }
 
 .main-buttons {
   display: flex;

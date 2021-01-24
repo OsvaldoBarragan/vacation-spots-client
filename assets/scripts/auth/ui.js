@@ -21,6 +21,7 @@ const signInSuccess = function (response) {
   $('#location-creator').hide()
   $('#update-locations').hide()
   $('#password-change').hide()
+  $('#locationlist-instructions').hide()
   $('.authenticated').show()
 }
 
@@ -50,6 +51,7 @@ const signOutSuccess = function (response) {
 
   $('.authenticated').hide()
   $('#location-list').hide()
+  $('.location-information').hide()
   $('.unauthenticated').show()
 
   store.user = null
@@ -75,6 +77,8 @@ const createLocationFailure = function (error) {
 }
 
 const displayInformation = function (location) {
+  $('#name').text('Location Name: ' + location.name)
+  $('#country').text('Location Country: ' + location.country)
   $('#locationID').text('Location ID: ' + location._id)
   $('#activities').text('Location Activities: ' + location.activities)
   $('#cuisines').text('Location Cuisines: ' + location.cuisines)
@@ -84,11 +88,27 @@ const showAllLocationsSuccess = function (response) {
   console.log('response is: ' + JSON.stringify(response))
   $('#message').text('Locations shown below.')
 
+  $('#locationlist-instructions').show()
+  $('#location-list').show()
+  $('#name').show()
+  $('#country').show()
+  $('#locationID').show()
+  $('#activities').show()
+  $('#cuisines').show()
+  $('#location-creator').hide()
+  $('#password-change').hide()
+  $('#update-locations').hide()
+
   const locationsList = response.locations
+
   $('#location-list').empty()
+  $('#name').empty()
+  $('#country').empty()
   $('#locationID').empty()
   $('#activities').empty()
   $('#cuisines').empty()
+
+  $('#locationlist-instructions').text('Click a location for more info!')
 
   // let openText = ''
   // loop through all of the locations
