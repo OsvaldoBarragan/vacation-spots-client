@@ -2,18 +2,15 @@ const store = require('./../store')
 
 const signUpSuccess = function (response) {
   $('#message').text('Account for ' + JSON.stringify(response.user.email) + ' has been created.')
-  console.log('Success! Sign-up works!')
   $('form :input').val('')
 }
 
-const signUpFailure = function (error) {
-  console.log('Error is: ' + error.responseJSON.message)
+const signUpFailure = function () {
   $('#message').text('An error has occured. Try again.')
 }
 
 const signInSuccess = function (response) {
   $('#message').text('Welcome, ' + JSON.stringify(response.user.email) + '.')
-  console.log('The user has signed in.')
 
   store.user = response.user
 
@@ -22,23 +19,23 @@ const signInSuccess = function (response) {
   $('#update-locations').hide()
   $('#password-change').hide()
   $('#locationlist-instructions').hide()
+  $('#review-creator').hide()
+  $('#update-review').hide()
+  $('#delete-review').hide()
   $('.authenticated').show()
 }
 
-const signInFailure = function (error) {
-  console.log('The user has failed to sign in. Error is: ' + error.responseJSON.message)
+const signInFailure = function () {
   $('#message').text('An error has occured. If you have an account, make sure both your email and password are correct. If not, sign up first.')
 }
 
 const changePasswordSuccess = function (response) {
   $('#message').text('The password has been successfully changed.')
-  console.log('Password has changed.')
   $('form :input').val('')
 }
 
-const changePasswordFailure = function (error) {
+const changePasswordFailure = function () {
   $('#message').text('An error occured while changing your password.')
-  console.log('Error is: ' + error.responseJSON.message)
 }
 
 const signOutSuccess = function (response) {
@@ -46,8 +43,6 @@ const signOutSuccess = function (response) {
   setTimeout(function () {
     $('#message').text('')
   }, 3000)
-
-  console.log('User has signed out.')
 
   $('.authenticated').hide()
   $('#location-list').hide()
@@ -58,34 +53,38 @@ const signOutSuccess = function (response) {
   $('form').trigger('reset')
 }
 
-const signOutFailure = function (error) {
+const signOutFailure = function () {
   $('#message').text('An error occured while signing out.')
-  console.log('Error is: ' + error.responseJSON.message)
 }
 
 const createLocationSuccess = function (response) {
   $('#message').text('Location created')
-  // console.log('The location was successfully created: ' + JSON.stringify(response))
-  // console.log('The location shortened: ' + JSON.stringify(response.locations))
   store.locations = response.locations
   $('form :input').val('')
 }
 
-const createLocationFailure = function (error) {
+const createLocationFailure = function () {
   $('#message').text('Failed to create location.')
-  console.log('Error is: ' + error.responseJSON.message)
 }
 
-const displayInformation = function (location) {
+const displayInformation = function (location, review) {
   $('#name').text('Location Name: ' + location.name)
   $('#country').text('Location Country: ' + location.country)
   $('#locationID').text('Location ID: ' + location._id)
   $('#activities').text('Location Activities: ' + location.activities)
   $('#cuisines').text('Location Cuisines: ' + location.cuisines)
+  $('#reviews').empty()
+
+  for (let i = 0; i < location.reviews.length; i++) {
+    const reviewDiv = document.createElement('div')
+    reviewDiv.classList.add('displayReviews')
+    reviewDiv.innerHTML = ('Rating:' + location.reviews[i].rating + '<br />' +
+    ' Title: ' + location.reviews[i].title + '<br />' + 'Content: ' + location.reviews[i].content)
+    $('#reviews').append(reviewDiv)
+  }
 }
 
 const showAllLocationsSuccess = function (response) {
-  console.log('response is: ' + JSON.stringify(response))
   $('#message').text('Locations shown below.')
 
   $('#locationlist-instructions').show()
@@ -95,9 +94,13 @@ const showAllLocationsSuccess = function (response) {
   $('#locationID').show()
   $('#activities').show()
   $('#cuisines').show()
+  $('#reviews').show()
   $('#location-creator').hide()
   $('#password-change').hide()
   $('#update-locations').hide()
+  $('#review-creator').hide()
+  $('#update-review').hide()
+  $('#delete-review').hide()
 
   const locationsList = response.locations
 
@@ -107,6 +110,7 @@ const showAllLocationsSuccess = function (response) {
   $('#locationID').empty()
   $('#activities').empty()
   $('#cuisines').empty()
+  $('#reviews').empty()
 
   $('#locationlist-instructions').text('Click a location for more info!')
 
@@ -119,7 +123,6 @@ const showAllLocationsSuccess = function (response) {
     locationDiv.classList.add('displayLocations')
     // when a location div is clicked on, run displayActivities
     $(locationDiv).click(function () {
-      console.log('Works')
       displayInformation(locationsList[i])
     })
     locationDiv.innerHTML = (locationsList[i].name + ', ' + locationsList[i].country)
@@ -127,20 +130,40 @@ const showAllLocationsSuccess = function (response) {
   }
 }
 
-const showAllLocationsFailure = function (error) {
+const showAllLocationsFailure = function () {
   $('#message').text('Failed to show all locations.')
-  console.log('Error is: ' + error.responseJSON.message)
 }
 
 const updateLocationSuccess = function () {
   $('#message').text('Location updated')
-  // $('.authenticated').show()
-  console.log('I made it here, UI')
   $('form :input').val('')
 }
 
 const updateLocationFailure = function () {
-  console.log('Update Location Failed')
+}
+
+const createReviewSuccess = function (response) {
+  $('#message').text('Review created')
+}
+
+const createReviewFailure = function () {
+  $('#message').text('Failed to create review.')
+}
+
+const updateReviewSuccess = function (response) {
+  $('#message').text('Review updated')
+}
+
+const updateReviewFailure = function () {
+  $('#message').text('Failed to update review.')
+}
+
+const deleteReviewSuccess = function (response) {
+  $('#message').text('Review deleted')
+}
+
+const deleteReviewFailure = function () {
+  $('#message').text('Failed to update review.')
 }
 
 module.exports = {
@@ -157,5 +180,11 @@ module.exports = {
   showAllLocationsSuccess,
   showAllLocationsFailure,
   updateLocationSuccess,
-  updateLocationFailure
+  updateLocationFailure,
+  createReviewSuccess,
+  createReviewFailure,
+  updateReviewSuccess,
+  updateReviewFailure,
+  deleteReviewSuccess,
+  deleteReviewFailure
 }

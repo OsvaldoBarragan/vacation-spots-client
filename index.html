@@ -57,8 +57,9 @@
           <div class="side-buttons">
             <div id="show-changePassword">- Change Password</div>
             <div id="sign-out">- Sign Out</div>
-            <div id="show-reviews">- All Reviews</div>
-            <div id="user-settings">- User Settings</div>
+            <div id="show-reviewCreator">- Create a Review</div>
+            <div id="show-updateReview">- Update a Review</div>
+            <div id="show-deleteReview">- Delete a Review</div>
           </div>
         </div>
         <form id="password-change">
@@ -140,6 +141,76 @@
           />
           <button class="buttons" type="submit">Update</button>
         </form>
+        <form id="review-creator">
+          <select class="location-rating" name="review[rating]">
+            <option value="" disabled selected>Choose a Rating</option>
+            <option value="1">★</option>
+            <option value="2">★★</option>
+            <option value="3">★★★</option>
+            <option value="4">★★★★</option>
+            <option value="5">★★★★★</option>
+          </select>
+          <input
+            placeholder="Title"
+            type="text"
+            name="review[title]"
+          />
+          <input
+            placeholder="Content"
+            type="text"
+            name="review[content]"
+          />
+          <input
+            placeholder="locationID"
+            type="text"
+            name="review[locationId]"
+          />
+          <button class="buttons" type="submit">Submit Review</button>
+        </form>
+        <form id="update-review">
+          <select class="location-rating" name="review[rating]">
+            <option value="" disabled selected>Choose a Rating</option>
+            <option value="1">★</option>
+            <option value="2">★★</option>
+            <option value="3">★★★</option>
+            <option value="4">★★★★</option>
+            <option value="5">★★★★★</option>
+          </select>
+          <input
+            placeholder="reviewID"
+            type="text"
+            name="review[_id]"
+          />
+          <input
+            placeholder="New Title"
+            type="text"
+            name="review[title]"
+          />
+          <input
+            placeholder="New Content"
+            type="text"
+            name="review[content]"
+          />
+          <input
+            placeholder="locationID"
+            type="text"
+            name="review[locationId]"
+          />
+          <button class="buttons" type="submit">Update Review</button>
+        </form>
+        <form id="delete-review">
+          <input
+            placeholder="reviewID"
+            type="text"
+            name="review[_id]"
+          />
+          <input
+            placeholder="locationID"
+            type="text"
+            name="review[locationId]"
+          />
+          <button class="buttons" type="submit">Delete Review</button>
+        </form>
         <h4 id="locationlist-instructions"></h4>
         <div id="location-list"></div>
           <p class="location-information" id="name"></p>
@@ -147,6 +218,7 @@
           <p class="location-information" id="locationID"></p>
           <p class="location-information" id="activities"></p>
           <p class="location-information" id="cuisines"></p>
+          <div class="location-information" id="reviews"></div>
         </div>
     </body>
 </html>

@@ -163,7 +163,7 @@ div.displayLocations {
 }
 
 #show-changePassword:hover, #sign-out:hover,
-#show-reviews:hover, #user-settings:hover {
+#show-reviewCreator:hover, #show-updateReview:hover, #show-deleteReview:hover {
   background-color: #E0E0E0;
 }
 
@@ -177,4 +177,16 @@ div.displayLocations {
 
 #show-locationCreator, #show-updateLocation, #all-locations {
   margin: 10px;
+}
+
+select:required:invalid {
+  color: #666;
+}
+
+option[value=""][disabled] {
+  display: none;
+}
+
+option {
+  color: #000;
 }
