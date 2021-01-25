@@ -12,7 +12,7 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1 id="titleName"><b>YourVacation</b></h1>
+      <h1 id="titleName"><b>Vacation Spots</b></h1>
       <p id="message"></p>
       <div class="unauthenticated">
         <form id="sign-up">
@@ -31,7 +31,7 @@
             type="password"
             name="credentials[password_confirmation]"
           />
-          <button type="submit">Create a New Account</button>
+          <button class="buttons" type="submit">Create a New Account</button>
         </form>
         <form id="sign-in">
           <input
@@ -44,10 +44,24 @@
             type="password"
             name="credentials[password]"
           />
-          <button type="submit">Log in</button>
+          <button class="buttons" type="submit">Log in</button>
         </form>
+        <p id="with-open-login">Already have an account? Click below to log in</p>
+        <p id="with-open-signup">Don't have an account? Click below to create an account</p>
+        <button class="buttons" id="open-login">Go To Log in</button>
+        <button class="buttons" id="open-signup">Back to Sign-Up</button>
       </div>
       <div class="authenticated">
+        <div class="dropdown">
+          <span id="settings">Settings</span>
+          <div class="side-buttons">
+            <div id="show-changePassword">- Change Password</div>
+            <div id="sign-out">- Sign Out</div>
+            <div id="show-reviewCreator">- Create a Review</div>
+            <div id="show-updateReview">- Update a Review</div>
+            <div id="show-deleteReview">- Delete a Review</div>
+          </div>
+        </div>
         <form id="password-change">
           <input
             placeholder="Enter current password"
@@ -59,39 +73,152 @@
             type="password"
             name="passwords[new]"
           />
-          <button type="submit">Change Password</button>
+          <button class="buttons" type="submit">Confirm Password Change</button>
         </form>
-        <button id="sign-out">Log off</button>
-        <button id="create-location">Create a Location</button>
+        <div class="main-buttons">
+          <button class="buttons" id="show-locationCreator">Create a Location</button>
+          <button class="buttons" id="show-updateLocation">Update Location</button>
+          <button class="buttons" id="all-locations">Show All Locations</button>
+        </div>
         <form id="location-creator">
           <input
             placeholder="Name"
             type="text"
-            name="locationName"
+            name="location[name]"
           />
           <input
             placeholder="Country"
             type="text"
-            name="countryName"
+            name="location[country]"
           />
           <input
             placeholder="Activities"
             type="text"
-            name="activities"
+            name="location[activities]"
           />
           <input
-            placeholder="Food"
+            placeholder="Foods"
             type="text"
-            name="foods"
+            name="location[cuisines]"
           />
           <input
             placeholder="Image Url"
             type="text"
-            name="imageUrl"
+            name="location[imageUrl]"
           />
-          <button type="submit">Click to Create the Location</button>
+          <button class="buttons" type="submit">Click to Create the Location</button>
         </form>
-        <button id="all-locations">All Locations</button>
-    </div>
+        <form id="update-locations">
+          <input
+            placeholder="locationID"
+            type="text"
+            name="location[_id]"
+          />
+          <input
+            placeholder="updatedName"
+            type="text"
+            name="location[name]"
+          />
+          <input
+            placeholder="updatedCountry"
+            type="text"
+            name="location[country]"
+          />
+          <input
+            placeholder="updatedActivities"
+            type="text"
+            name="location[activities]"
+          />
+          <input
+            placeholder="updatedFoods"
+            type="text"
+            name="location[cuisines]"
+          />
+          <input
+            placeholder="updatedImageUrl"
+            type="text"
+            name="location[imageUrl]"
+          />
+          <button class="buttons" type="submit">Update</button>
+        </form>
+        <form id="review-creator">
+          <select class="location-rating" name="review[rating]">
+            <option value="" disabled selected>Choose a Rating</option>
+            <option value="1">★</option>
+            <option value="2">★★</option>
+            <option value="3">★★★</option>
+            <option value="4">★★★★</option>
+            <option value="5">★★★★★</option>
+          </select>
+          <input
+            placeholder="Title"
+            type="text"
+            name="review[title]"
+          />
+          <input
+            placeholder="Content"
+            type="text"
+            name="review[content]"
+          />
+          <input
+            placeholder="locationID"
+            type="text"
+            name="review[locationId]"
+          />
+          <button class="buttons" type="submit">Submit Review</button>
+        </form>
+        <form id="update-review">
+          <select class="location-rating" name="review[rating]">
+            <option value="" disabled selected>Choose a Rating</option>
+            <option value="1">★</option>
+            <option value="2">★★</option>
+            <option value="3">★★★</option>
+            <option value="4">★★★★</option>
+            <option value="5">★★★★★</option>
+          </select>
+          <input
+            placeholder="reviewID"
+            type="text"
+            name="review[_id]"
+          />
+          <input
+            placeholder="New Title"
+            type="text"
+            name="review[title]"
+          />
+          <input
+            placeholder="New Content"
+            type="text"
+            name="review[content]"
+          />
+          <input
+            placeholder="locationID"
+            type="text"
+            name="review[locationId]"
+          />
+          <button class="buttons" type="submit">Update Review</button>
+        </form>
+        <form id="delete-review">
+          <input
+            placeholder="reviewID"
+            type="text"
+            name="review[_id]"
+          />
+          <input
+            placeholder="locationID"
+            type="text"
+            name="review[locationId]"
+          />
+          <button class="buttons" type="submit">Delete Review</button>
+        </form>
+        <h4 id="locationlist-instructions"></h4>
+        <div id="location-list"></div>
+          <p class="location-information" id="name"></p>
+          <p class="location-information" id="country"></p>
+          <p class="location-information" id="locationID"></p>
+          <p class="location-information" id="activities"></p>
+          <p class="location-information" id="cuisines"></p>
+          <div class="location-information" id="reviews"></div>
+        </div>
     </body>
 </html>

@@ -60,15 +60,48 @@ const onShowAllLocations = function (event) {
     .catch(ui.showAllLocationsFailure)
 }
 
-// const onUpdateLocation = function (event) {
-//   event.preventDefault()
-//   const form = event.target
-//   const data = getFormFields(form)
-//
-//   api.updateLocation(data)
-//     .then(ui.updateLocationSuccess)
-//     .catch(ui.updateLocationFailure)
-// }
+const onUpdateLocation = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const data = getFormFields(form)
+  const id = data.location._id
+
+  api.updateLocation(data, id)
+    .then(ui.updateLocationSuccess)
+    .catch(ui.updateLocationFailure)
+}
+
+const onCreateReview = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const data = getFormFields(form)
+
+  api.createReview(data)
+    .then(ui.createReviewSuccess)
+    .catch(ui.createReviewFailure)
+}
+
+const onUpdateReview = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const data = getFormFields(form)
+  const id = data.review._id
+
+  api.updateReview(data, id)
+    .then(ui.updateReviewSuccess)
+    .catch(ui.updateReviewFailure)
+}
+
+const onDeleteReview = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const data = getFormFields(form)
+  const id = data.review._id
+
+  api.deleteReview(data, id)
+    .then(ui.deleteReviewSuccess)
+    .catch(ui.deleteReviewFailure)
+}
 
 module.exports = {
   onSignIn: onSignIn,
@@ -76,5 +109,9 @@ module.exports = {
   onPasswordChange: onPasswordChange,
   onSignOut: onSignOut,
   onCreateLocation: onCreateLocation,
-  onShowAllLocations: onShowAllLocations
+  onShowAllLocations: onShowAllLocations,
+  onUpdateLocation: onUpdateLocation,
+  onCreateReview: onCreateReview,
+  onUpdateReview: onUpdateReview,
+  onDeleteReview: onDeleteReview
 }

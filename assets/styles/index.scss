@@ -4,18 +4,6 @@ body {
   background-color: #aacfdd;
 }
 
-h1 {
-  text-align: center;
-  color: black;
-  position: relative;
-  font-size: 40px;
-  margin-top: 100px;
-}
-
-#message {
-  text-align: center;
-}
-
 .unauthenticated {
   text-align: center;
   font-size: 20px;
@@ -25,4 +13,180 @@ h1 {
 .authenticated {
   text-align: center;
   position: relative;
+}
+
+h1 {
+  text-align: center;
+  color: black;
+  position: relative;
+  font-size: 40px;
+  margin-top: 80px;
+  margin-bottom: 50px;
+}
+
+h4 {
+  text-align: center;
+  position: relative;
+  top: 75px;
+}
+
+input[type=text] {
+  position: relative;
+  left: 25%;
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=password] {
+  position: relative;
+  left: 25%;
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+p {
+  position: relative;
+  left: 25%;
+  margin-bottom: 0px;
+  width: 50%;
+}
+
+div.displayLocations {
+  color: purple;
+  // margin-bottom: 12px;
+  // margin:4px, 4px;
+  // padding:4px;
+  // background-color: green;
+  // width: 500px;
+  // height: 110px;
+  // overflow-x: hidden;
+  // overflow-y: scroll;
+  // text-align: center;
+}
+
+#location-list {
+  position: relative;
+  left: 200px;
+  top: 100px;
+  width: 400px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 150px;
+}
+
+.buttons {
+  position: relative;
+  width: 50%;
+  text-align: center;
+  background-color: #1E90FF;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+// button[type=submit]
+.buttons:hover {
+  background-color: #0077b6;
+}
+
+#open-login:hover, #open-signup:hover, .displayLocations:hover {
+  background-color: #0077b6;
+}
+
+#message {
+  text-align: center;
+}
+
+.location-information {
+  position: relative;
+  left: 800px;
+  bottom: 60px;
+  width: 400px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+#settings {
+  position: relative;
+  right: 625px;
+  top: -200px;
+  padding: 8px;
+  background-color: white;
+  border-radius: 4px;
+}
+
+// .side-buttons {
+//   position: relative;
+//   top: -220px;
+//   height: 60px;
+//   width: 15%;
+//   font-size: 15px;
+//   right: 0px;
+//   display: block;
+// }
+
+.side-buttons {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 125px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 5px 5px;
+  z-index: 1;
+  right: 597px;
+  top: -175px;
+  margin: 5px;
+}
+
+.dropdown:hover .side-buttons {
+  display: block;
+}
+
+#settings:hover {
+  background-color: #E0E0E0;
+}
+
+#show-changePassword:hover, #sign-out:hover,
+#show-reviewCreator:hover, #show-updateReview:hover, #show-deleteReview:hover {
+  background-color: #E0E0E0;
+}
+
+.main-buttons {
+  display: flex;
+  flex-direction: row;
+  width: 200px;
+  justify-content: center;
+  margin: auto;
+}
+
+#show-locationCreator, #show-updateLocation, #all-locations {
+  margin: 10px;
+}
+
+select:required:invalid {
+  color: #666;
+}
+
+option[value=""][disabled] {
+  display: none;
+}
+
+option {
+  color: #000;
 }
