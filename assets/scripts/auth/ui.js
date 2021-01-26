@@ -20,6 +20,7 @@ const signInSuccess = function (response) {
   $('#password-change').hide()
   $('#location-list').hide()
   $('#locationlist-instructions').hide()
+  $('#reviews').hide()
   $('#review-creator').hide()
   $('#update-review').hide()
   $('#delete-review').hide()
