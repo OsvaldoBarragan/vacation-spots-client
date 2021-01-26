@@ -1,7 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
 
 body {
-  background-color: #aacfdd;
+  background-color: #81c784;
 }
 
 .unauthenticated {
@@ -62,16 +62,13 @@ p {
 }
 
 div.displayLocations {
-  color: purple;
-  // margin-bottom: 12px;
-  // margin:4px, 4px;
-  // padding:4px;
-  // background-color: green;
-  // width: 500px;
-  // height: 110px;
-  // overflow-x: hidden;
-  // overflow-y: scroll;
-  // text-align: center;
+  color: white;
+  padding: 6px;
+}
+
+div.displayReviews {
+  color: white;
+  padding: 6px;
 }
 
 #location-list {
@@ -82,13 +79,26 @@ div.displayLocations {
   overflow-x: hidden;
   overflow-y: auto;
   height: 150px;
+  border: 4px solid black;
+  border-radius: 2px;
+  background-color: #43a047;
+}
+
+#reviews {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border: 4px solid black;
+  border-radius: 2px;
+  background-color: #43a047;
+  height: 150px;
 }
 
 .buttons {
   position: relative;
   width: 50%;
   text-align: center;
-  background-color: #1E90FF;
+  background-color: #43a047;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -97,13 +107,8 @@ div.displayLocations {
   cursor: pointer;
 }
 
-// button[type=submit]
-.buttons:hover {
-  background-color: #0077b6;
-}
-
-#open-login:hover, #open-signup:hover, .displayLocations:hover {
-  background-color: #0077b6;
+.buttons:hover, .displayLocations:hover {
+  background-color: #1b5e20;
 }
 
 #message {
@@ -112,6 +117,8 @@ div.displayLocations {
 
 .location-information {
   position: relative;
+  text-align: justify;
+  color: white;
   left: 800px;
   bottom: 60px;
   width: 400px;
@@ -130,16 +137,6 @@ div.displayLocations {
   background-color: white;
   border-radius: 4px;
 }
-
-// .side-buttons {
-//   position: relative;
-//   top: -220px;
-//   height: 60px;
-//   width: 15%;
-//   font-size: 15px;
-//   right: 0px;
-//   display: block;
-// }
 
 .side-buttons {
   display: none;

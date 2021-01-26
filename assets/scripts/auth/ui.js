@@ -18,6 +18,7 @@ const signInSuccess = function (response) {
   $('#location-creator').hide()
   $('#update-locations').hide()
   $('#password-change').hide()
+  $('#location-list').hide()
   $('#locationlist-instructions').hide()
   $('#review-creator').hide()
   $('#update-review').hide()
@@ -26,7 +27,7 @@ const signInSuccess = function (response) {
 }
 
 const signInFailure = function () {
-  $('#message').text('An error has occured. If you have an account, make sure both your email and password are correct. If not, sign up first.')
+  $('#message').text('An error has occurred. If you have an account, make sure both your email and password are correct. If not, sign up first.')
 }
 
 const changePasswordSuccess = function (response) {
@@ -35,7 +36,7 @@ const changePasswordSuccess = function (response) {
 }
 
 const changePasswordFailure = function () {
-  $('#message').text('An error occured while changing your password.')
+  $('#message').text('An error occurred while changing your password.')
 }
 
 const signOutSuccess = function (response) {
@@ -78,7 +79,7 @@ const displayInformation = function (location, review) {
   for (let i = 0; i < location.reviews.length; i++) {
     const reviewDiv = document.createElement('div')
     reviewDiv.classList.add('displayReviews')
-    reviewDiv.innerHTML = ('Rating:' + location.reviews[i].rating + '<br />' +
+    reviewDiv.innerHTML = ('reviewID: ' + location.reviews[i]._id + '<br /> Rating:' + location.reviews[i].rating + '<br />' +
     ' Title: ' + location.reviews[i].title + '<br />' + 'Content: ' + location.reviews[i].content)
     $('#reviews').append(reviewDiv)
   }
